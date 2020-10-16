@@ -49,7 +49,7 @@ namespace YakitTüketimiHesaplama
 
             if (txtOdenenTutar.Text == "" || txtMesafe.Text == "" || txtLitreFiyatı.Text == "")
             {
-                MessageBox.Show("Tüm alanlar dolu olmalıdır.");
+                MessageBox.Show("Tüm alanlar dolu olmalıdır.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
