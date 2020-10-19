@@ -28,7 +28,7 @@ namespace YakitTüketimiHesaplama
             dgvListe.Columns[2].HeaderText = "Ödenen(₺)";
             dgvListe.Columns[3].HeaderText = "Litre Fiyatı(₺)";
             dgvListe.Columns[4].HeaderText = "Ort Tüketim(km/₺)";
-            dgvListe.Columns[5].HeaderText = "Ort Tüketim(100km/lt)";
+            dgvListe.Columns[5].HeaderText = "Ort Tüketim(100km/L)";
             #endregion
 
             try
@@ -60,8 +60,7 @@ namespace YakitTüketimiHesaplama
                 e1.OdenenTutar = double.Parse(txtOdenenTutar.Text);
                 e1.Mesafe = double.Parse(txtMesafe.Text);
                 e1.LitreFiyatı = double.Parse(txtLitreFiyatı.Text);
-                e1.KmOrtTuketim = string.Format("{0:0.00}", e1.OdenenTutar / e1.Mesafe);
-                e1.LtOrtTuketim = string.Format("{0:0.00}", double.Parse(e1.KmOrtTuketim) * 100 / e1.LitreFiyatı);
+                
                 elemanlar.Add(e1);
 
                 var sortedListInstance = new BindingList<Eleman>(elemanlar.OrderByDescending(x => x.Tarih).ToList());
@@ -100,8 +99,6 @@ namespace YakitTüketimiHesaplama
                     Kaydet();
                     break;
                 case DialogResult.No:
-                    break;
-                default:
                     break;
             }
         }
