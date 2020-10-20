@@ -228,8 +228,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListe.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListe.RowHeadersVisible = false;
             this.dgvListe.RowHeadersWidth = 20;
             this.dgvListe.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListe.Size = new System.Drawing.Size(606, 261);
             this.dgvListe.TabIndex = 8;
             this.dgvListe.TabStop = false;

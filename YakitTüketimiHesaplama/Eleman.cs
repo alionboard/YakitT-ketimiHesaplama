@@ -12,17 +12,8 @@ namespace YakitTüketimiHesaplama
         public double Mesafe { get; set; }
         public double OdenenTutar { get; set; }
         public double LitreFiyatı { get; set; }
-        public string KmOrtTuketim => KmOrtTuketimFonk();
-        public string LtOrtTuketim => LtOrtTuketimFonk();
-        private string KmOrtTuketimFonk()
-        {
-            return (OdenenTutar / Mesafe).ToString("0.00");
-        }
-        private string LtOrtTuketimFonk()
-        {
-            return (100 / (Mesafe / (OdenenTutar / LitreFiyatı))).ToString("0.00");
-        }
-
+        public string KmOrtTuketim => (OdenenTutar / Mesafe).ToString("0.00");
+        public string LtOrtTuketim => (100 / (Mesafe / (OdenenTutar / LitreFiyatı))).ToString("0.00");
 
     }
 }
