@@ -39,9 +39,7 @@ namespace YakitTüketimiHesaplama
                 foreach (var item in okunan)
                     elemanlar.Add(item);
             }
-            catch (Exception)
-            {
-            }
+            catch (Exception){}
         }
 
         private void btnHesapla_Click(object sender, EventArgs e)
@@ -55,12 +53,14 @@ namespace YakitTüketimiHesaplama
 
             else
             {
-                Eleman e1 = new Eleman();
-                e1.Tarih = dtpTarih.Value.Date;
-                e1.OdenenTutar = double.Parse(txtOdenenTutar.Text);
-                e1.Mesafe = double.Parse(txtMesafe.Text);
-                e1.LitreFiyatı = double.Parse(txtLitreFiyatı.Text);
-                
+                Eleman e1 = new Eleman
+                {
+                    Tarih = dtpTarih.Value.Date,
+                    OdenenTutar = double.Parse(txtOdenenTutar.Text),
+                    Mesafe = double.Parse(txtMesafe.Text),
+                    LitreFiyatı = double.Parse(txtLitreFiyatı.Text)
+                };
+
                 elemanlar.Add(e1);
 
                 var sortedListInstance = new BindingList<Eleman>(elemanlar.OrderByDescending(x => x.Tarih).ToList());
@@ -75,13 +75,13 @@ namespace YakitTüketimiHesaplama
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             Kaydet();
+            MessageBox.Show("Başarıyla Kaydedildi.", "Kaydet", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Kaydet()
         {
             string json = JsonConvert.SerializeObject(elemanlar);
             File.WriteAllText("veri.json", json);
-            MessageBox.Show("Başarıyla Kaydedildi.", "Kaydet", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnSifirla_Click(object sender, EventArgs e)
